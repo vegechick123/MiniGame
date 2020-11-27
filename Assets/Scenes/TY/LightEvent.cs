@@ -6,7 +6,7 @@ public class LightEvent : MonoBehaviour
 {
     // Start is called before the first frame update
     public SpriteRenderer spriteRenderer; 
-    public bool lastFrameHit=false;
+    public bool lastFrameHit=true;
     public bool currameHit=false;
     private void Awake()
     {

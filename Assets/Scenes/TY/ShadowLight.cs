@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShadowLight : MonoBehaviour
 {
     public float degree;
-    private float perDegreee = 1f;
+    private float perDegreee = 3f;
     public MeshFilter meshFilter;
     struct Range
     {
@@ -43,48 +43,22 @@ public class ShadowLight : MonoBehaviour
             curRange++;
             float curRad = curRange * Mathf.Deg2Rad;
             Vector2 direction = new Vector2(Mathf.Cos(curRad), Mathf.Sin(curRad));
-            RaycastHit2D res = Physics2D.Raycast(transform.position, direction);
-            if (res.collider != null)
+            RaycastHit2D[] ress = Physics2D.RaycastAll(transform.position, direction);
+            for (int i = 0; i < ress.Length; i++)
             {
-                vertex.Add(res.point);
-                LightEvent target = res.collider.GetComponent<LightEvent>();
-                if (target)
-                    target.currameHit = true;
+                RaycastHit2D res = ress[i];
+                if (res.collider.tag == "Player")
+                    continue;
+                if (res.collider != null)
+                {
+                    vertex.Add(res.point);
+                    LightEvent target = res.collider.GetComponent<LightEvent>();
+                    if (target)
+                        target.currameHit = true;
+                }
+                else
+                    vertex.Add(transform.position + 100 * direction.Vec2ToVec3());
             }
-            else
-                vertex.Add(transform.position + 100 * direction.Vec2ToVec3());
-            
-            
-            //Debug.DrawRay(transform.position, res.point-new Vector2(transform.position.x, transform.position.y),Color.red);
-            //for (int i = 0; i < res.Length; i++)
-            //{
-            //    if (res.Length >= 1)
-            //    {
-            //        RaycastHit2D hit = res[0];
-
-            //        Vector2 point;
-            //        //Raycast code here
-            //        if (res.Length == 1)
-            //        {
-            //            point = hit.point + 10f * direction;
-
-            //        }
-            //        else
-            //        {
-            //            point = res[1].point - 0.1f * direction;
-            //        }
-            //        RaycastHit2D oppositeRes = Physics2D.Raycast(point, -direction);
-            //        //if(oppositeRes!=null)
-            //        if (oppositeRes.collider != null)
-            //        {
-
-            //            Debug.DrawRay(oppositeRes.point, point - oppositeRes.point);
-            //        }
-            //        //Debug.DrawRay(oppositeRes.point, direction);
-            //        //Debug.DrawRay(point, hit.normal);
-            //        //Debug.DrawRay(transform.position, new Vector3(point.x, point.y,0) -transform.position, Color.yellow);
-            //    }
-            //}
         }
         while (curRange < range.maxmum);
         Mesh mesh = new Mesh();

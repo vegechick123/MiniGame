@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Bridge : InteractionObject
 {
-    Collider2D bridgeColider;
+    public Collider2D bridgeColider;
+    SpriteRenderer spriteRender;
+    private void Awake()
+    {
+        spriteRender = GetComponent<SpriteRenderer>();
+    }
     public override void OnInteraction(KeyCode inputKey)
     {
         base.OnInteraction(inputKey);
         bridgeColider.enabled = true;
+        spriteRender.enabled = true;
     }
 
 }
