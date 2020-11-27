@@ -30,11 +30,11 @@ public class LightEvent : MonoBehaviour
         lastFrameHit = currameHit;
         currameHit = false;
     }
-    void OnLightEnter()
+    public virtual void OnLightEnter()
     {
         spriteRenderer.color = Color.white;
     }
-    void OnLightOut()
+    public virtual void OnLightOut()
     {
         spriteRenderer.color = Color.black;
     }

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : InteractionObject
+public class Bridge : InteractionObject
 {
-    //Collider2D colider; 
+    Collider2D bridgeColider;
     public override void OnInteraction(KeyCode inputKey)
     {
         base.OnInteraction(inputKey);
-        gameObject.SetActive(false);
+        bridgeColider.enabled = true;
     }
 
 }
