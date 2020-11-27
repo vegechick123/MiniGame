@@ -5,8 +5,6 @@ using UnityEngine;
 public class MovePlayer : MonoBehaviour
 {
     public float jumpForce = 5f;
-    public GameObject  groundCheck;
-    public float dValue;
     public float moveSpeed = 5f;
 
 
@@ -18,13 +16,6 @@ public class MovePlayer : MonoBehaviour
     private GameObject Player;
 
 
-    //private float smoothing = 4;
-    // private float restTime = 0.5f;
-    //private float restTimer = 0;
-    // private float jumpHoldForce = 1.9f;
-
-
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -35,84 +26,73 @@ public class MovePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //rb2d.velocity = new Vector2(1f, 1f);
-        //rb2d.MovePosition(Vector2.Lerp(currentPos , targetPos, restTimer*smoothing));
-        //isGround = Physics2D.OverlapCircle(CheckPoint.position, CheckRadius, map);
-       // float h = (int)Input.GetAxis("Horizontal");
-        //restTimer += Time.deltaTime;
-        //Vector2 dir = new Vector2(h, 0);
-        //bool hor=Input .GetKeyDown("right");
-       // bool hol = Input.GetKeyDown("left");
-       // bool ver = Input.GetKeyDown("space");
-       /* if (h!=0)
-        {
-            rb2d.velocity =new Vector2(h,0)*force;
-            animator.SetTrigger("isRun");
-            // currentPos = targetPos;
-            //targetPos += new Vector2(1f, 0f);
-            //restTimer = 0;
-        }
-        animator.SetTrigger("isIdle");
-
-        /*if (hol)
-         {
-            rb2d.MovePosition (transform.position+dir*0.2f);
-             animator.SetTrigger("isRun");
-             //  currentPos = targetPos;
-             // targetPos += new Vector2(-1f, 0f);
-
-             //restTimer = 0;
-         }
-         /* if (ver&&IsGround())
-          {          
-              rb2d.AddForce ( new Vector2(0, jumpForce));
-              animator.SetTrigger("isJump");
-
-          }*/
-        playerMove();
-        animator.SetTrigger("isIdle");
-
-    }
-    public void playerMove()
-    {
         float h = Input.GetAxis("Horizontal");
         bool ver = Input.GetKeyDown("space");
         if (ver && isGround)
         {
-            rb2d.AddForce(new Vector2(0, jumpForce) );
+
+            rb2d.AddForce(new Vector2(0, jumpForce));
+            if(!Input .GetKeyDown ("right")||!Input .GetKeyDown ("left"))
             animator.SetTrigger("isJump");
         }
-        if (h != 0)
+        /* if (h != 0)
+         {
+
+             rb2d.velocity = new Vector2(h * moveSpeed, 0);                   
+             animator.SetTrigger("isRun"); 
+             // currentPos = targetPos;
+             //targetPos += new Vector2(1f, 0f);
+             //restTimer = 0;
+         }
+         if (h != 0 && ver)
+         {
+             animator.SetTrigger("isIdle");
+         }*/
+        if (Input.GetAxisRaw("Horizontal") > 0)
         {
-            rb2d.AddForce(new Vector2(h, 0) * moveSpeed);
+            rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);
+
+            //设置自身缩放的值
+            transform.localScale = new Vector2(1f, 1f);
             animator.SetTrigger("isRun");
-            // currentPos = targetPos;
-            //targetPos += new Vector2(1f, 0f);
-            //restTimer = 0;
         }
-        if(h!=0&&ver)
+        //角色水平移动
+        //按住A键，判断如果小于0，则向左开始移动
+        else if (Input.GetAxisRaw("Horizontal") < 0)
         {
-            animator.SetTrigger("isIdle");
+            rb2d.velocity = new Vector2(-moveSpeed, rb2d.velocity.y);
+
+            //如果new Vector2(-1f, 1f)  x值为负数，则图片进行反转显示
+            transform.localScale = new Vector2(-1f, 1f);
+            animator.SetTrigger("isRun");
         }
-        
-    }
-   
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Map"))
+        else
+        //角色水平移动
+        //松开按键，判断如果等于0，则停止移动
         {
-            isGround = true;
+           rb2d.velocity = new Vector2(0, rb2d.velocity.y);
         }
+        animator.SetTrigger("isIdle");
+
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Map"))
+        if (collision.gameObject)
         {
             isGround = false;
         }
     }
-
-
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject)
+            isGround = true;
+        }
 }
+    
+
+    
+
+
+
  

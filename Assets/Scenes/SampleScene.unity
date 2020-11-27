@@ -181,9 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64ac40445382894580c54799793d3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 500
-  groundCheck: {fileID: 37621463}
-  dValue: 3
+  jumpForce: 200
   moveSpeed: 5
 --- !u!1 &161450285
 GameObject:
@@ -1191,7 +1189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783581772}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.96, y: -1.97, z: 0.7115135}
+  m_LocalPosition: {x: -5.05, y: 1.45, z: 0.7115135}
   m_LocalScale: {x: 1.325744, y: 0.24096736, z: 1}
   m_Children: []
   m_Father: {fileID: 37621464}
@@ -1300,7 +1298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867826371}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.14, y: -0.64, z: 0.7115135}
+  m_LocalPosition: {x: 0.24, y: -2.24, z: 0.7115135}
   m_LocalScale: {x: 1.348977, y: 0.24408302, z: 1}
   m_Children: []
   m_Father: {fileID: 37621464}
@@ -1409,7 +1407,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972381304}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.39, y: -1.27, z: 0.7115135}
+  m_LocalPosition: {x: -2.03, y: 1.09, z: 0.7115135}
   m_LocalScale: {x: 1.5348407, y: 0.2440836, z: 1}
   m_Children: []
   m_Father: {fileID: 37621464}
@@ -1870,7 +1868,7 @@ PrefabInstance:
     - target: {fileID: 6258253947767428523, guid: ef6f3741b0e0ccd4aac0101430ca4253,
         type: 3}
       propertyPath: m_LinearDrag
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6258253947767428524, guid: ef6f3741b0e0ccd4aac0101430ca4253,
         type: 3}
