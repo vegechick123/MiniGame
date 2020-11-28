@@ -42,10 +42,7 @@ public class ShadowLight : MonoBehaviour
             float curRad = curRange * Mathf.Deg2Rad;
             Vector2 direction = new Vector2(Mathf.Cos(curRad), Mathf.Sin(curRad));
             RaycastHit2D[] ress = Physics2D.RaycastAll(transform.position, direction);
-            if(ress.Length==0)
-            {
-                vertex.Add(transform.position + 100 * direction.Vec2ToVec3());
-            }
+            bool trueHitFlag = false;
             for (int i = 0; i < ress.Length; i++)
             {
                 RaycastHit2D res = ress[i];
@@ -56,6 +53,7 @@ public class ShadowLight : MonoBehaviour
                 }
                 if (res.collider != null)
                 {
+                    trueHitFlag = true;
                     vertex.Add(res.point-res.normal*0.2f);
 
                     LightEvent target = res.collider.GetComponent<LightEvent>();
@@ -64,6 +62,10 @@ public class ShadowLight : MonoBehaviour
                 }
                     
                 break;
+            }
+            if(!trueHitFlag)
+            {
+                vertex.Add(transform.position + 100 * direction.Vec2ToVec3());
             }
         }
         while (curRange < range.maxmum);
