@@ -10,7 +10,7 @@ public class ShadowLight : MonoBehaviour
     public MeshFilter meshFilter;
     public Camera lightCamera;
     public Material lightMat;
-    public RenderTexture renderTexture;
+    //public RenderTexture renderTexture;
     public CommandBuffer commandBuffer;
     private Mesh mesh;
     struct Range
@@ -109,7 +109,10 @@ public class ShadowLight : MonoBehaviour
         // Did we already add the command buffer on this camera? Nothing to do then.
         commandBuffer = new CommandBuffer();
         commandBuffer.name = "LightSource";
-        
+        RenderTexture renderTexture = new RenderTexture(cam.pixelWidth, cam.pixelHeight, 0)
+        {
+
+        };
         int id = Shader.PropertyToID("_LightSourceTexture");
         commandBuffer.SetRenderTarget(renderTexture);
         commandBuffer.ClearRenderTarget(true,true,Color.black);

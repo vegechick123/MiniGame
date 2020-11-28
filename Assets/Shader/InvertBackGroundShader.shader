@@ -120,10 +120,6 @@ Shader "GrabPassInvert"
         Cull Off
         Lighting Off
         ZWrite Off
-        GrabPass
-        {
-            "_BackgroundTexture"
-        }
 
 
         Pass
@@ -156,20 +152,15 @@ Shader "GrabPassInvert"
                 return o;
             }
 
-            sampler2D _BackgroundTexture;
 
             half4 frag(v2f i) : SV_Target
             {
-                half4 bgcolor = tex2Dproj(_BackgroundTexture, i.grabPos);
-                //return bgcolor;
-                //return bgcolor;
-                //return 1-bgcolor;
-                //return fixed4(bgcolor.rgb,1);
+                float2 uv =i.grabPos.xy/i.grabPos.w;
+                uv.y=1-uv.y;
+                half4 bgcolor = tex2D(_LightSourceTexture, uv);
+  
                 fixed4 lightCol = tex2D(_LightTex, i.uv);
                 lightCol.rgb =lightCol.rgb*lightCol.a+bgcolor.rgb*(1-lightCol.a);
-                //return fixed4(0,0,0,lightCol.a);
-                //return lightCol*bgcolor.r;
-                //return lightCol;
                 fixed4 shadowCol = tex2D(_ShadowTex, i.uv);
                 shadowCol.rgb=shadowCol.rgb*shadowCol.a+bgcolor*(1-shadowCol.a);
                 
@@ -177,11 +168,6 @@ Shader "GrabPassInvert"
                     return lightCol;
                 else
                     return shadowCol;
-                //return shadowCol;
-                //fixed4 col = (1-bgcolor);
-                //fixed4 col = tex2D(_LightTex, i.uv);
-                //col.rgb*=col.a;
-                //return fixed4(0,0,0,1);
             }
             ENDCG
         }
