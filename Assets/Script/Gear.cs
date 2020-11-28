@@ -24,9 +24,31 @@ public class Gear : MonoBehaviour
             return  new Vector2(horizon.Length<=0?m_rigidbody2D.position.x:horizon[curIndexHorizon],
                 verticle.Length <= 0 ? m_rigidbody2D.position.y : verticle[curIndexVertical]); } }
 
+
+    public AudioClip lightOn;
+
+    private AudioSource music;
     private void Awake()
     {
+        music = gameObject.AddComponent<AudioSource>();
+        music.playOnAwake = false;
         m_rigidbody2D = GetComponent<Rigidbody2D>();
+
+    }
+    private void Update()
+    {
+        music.clip = lightOn;
+        music.Play();
+        music.loop = true;
+    }
+    void Refresh(int targetIndex)
+    {
+        if (0 <= targetIndex && targetIndex < position.Length)
+        {
+            transform.localPosition= position[targetIndex];
+            transform.localRotation = Quaternion.Euler(new Vector3(0, 0, rotation[targetIndex]));
+            curIndex = targetIndex;
+        }
     }
     public void ChangeHorizon(int chageValue)
     {
