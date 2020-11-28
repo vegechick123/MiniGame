@@ -33,7 +33,6 @@ public class ShadowLight : MonoBehaviour
     {
         float curRange = range.minimum;
 
-        List<Vector2> hitpoints = new List<Vector2>();
         List<Vector3> vertex = new List<Vector3>();
         vertex.Add(transform.position);
         
@@ -43,6 +42,10 @@ public class ShadowLight : MonoBehaviour
             float curRad = curRange * Mathf.Deg2Rad;
             Vector2 direction = new Vector2(Mathf.Cos(curRad), Mathf.Sin(curRad));
             RaycastHit2D[] ress = Physics2D.RaycastAll(transform.position, direction);
+            if(ress.Length==0)
+            {
+                vertex.Add(transform.position + 100 * direction.Vec2ToVec3());
+            }
             for (int i = 0; i < ress.Length; i++)
             {
                 RaycastHit2D res = ress[i];
@@ -59,8 +62,7 @@ public class ShadowLight : MonoBehaviour
                     if (target)
                         target.currameHit = true;
                 }
-                else
-                    vertex.Add(transform.position + 100 * direction.Vec2ToVec3());
+                    
                 break;
             }
         }
