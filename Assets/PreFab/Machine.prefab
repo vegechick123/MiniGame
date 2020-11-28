@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6214221536854576091}
   m_Layer: 0
   m_Name: Machine
-  m_TagString: Untagged
+  m_TagString: machine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   player: {fileID: 0}
   targetGear: {fileID: 0}
   chageIndex: 1
+  turn: {fileID: 0}
 --- !u!61 &6214221536854576091
 BoxCollider2D:
   m_ObjectHideFlags: 0

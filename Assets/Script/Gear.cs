@@ -10,7 +10,21 @@ public class Gear : MonoBehaviour
     public int curIndex2 = 0;
     public int curIndex3 = 0;
     public int max = 10;
-  
+    public AudioClip lightOn;
+
+    private AudioSource music;
+    private void Awake()
+    {
+        music = gameObject.AddComponent<AudioSource>();
+        music.playOnAwake = false;
+
+    }
+    private void Update()
+    {
+        music.clip = lightOn;
+        music.Play();
+        music.loop = true;
+    }
     void Refresh(int targetIndex)
     {
         if (0 <= targetIndex && targetIndex < position.Length)

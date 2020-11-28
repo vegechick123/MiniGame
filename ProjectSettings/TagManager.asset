@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Map
-  - background
+  - machine
+  - door
   layers:
   - Default
   - TransparentFX

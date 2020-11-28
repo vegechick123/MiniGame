@@ -10,5 +10,7 @@ public class Machine : InteractionObject
     {
         base.OnInteraction(inputKey);
         targetGear.ChangeIndex(chageIndex);
+       
+        
     }
 }

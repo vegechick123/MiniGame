@@ -5,11 +5,14 @@ using UnityEngine;
 public class InteractionObject : MonoBehaviour
 {
     public Form activeState;
+
     public KeyCode interationKey=KeyCode.V;
     [HideInInspector]
     public bool canTrigger=false;
     [HideInInspector]
-    public LightShadowForm player; 
+    public LightShadowForm player;
+
+  
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
