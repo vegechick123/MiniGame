@@ -12,6 +12,8 @@ public class MovePlayer : MonoBehaviour
 
     public bool isGround;
     public BoxCollider2D colider;
+
+    private bool touchGround;
     private Rigidbody2D rb2d;
     private Animator animator;
     private GameObject Player;
@@ -28,6 +30,7 @@ public class MovePlayer : MonoBehaviour
         colider = GetComponent<BoxCollider2D>();
         rb2d = GetComponent<Rigidbody2D>();
         isGround = true;
+        touchGround = true;
     }
 
     // Update is called once per frame
@@ -61,22 +64,29 @@ public class MovePlayer : MonoBehaviour
             
             rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);       
             transform.localScale = new Vector2(1f, 1f);
-            animator.SetTrigger("Walk");
+            if (isGround)
+            animator.SetBool("Walk",true);
             musicRun.loop = true;
         }        
         else if (Input.GetAxisRaw("Horizontal") < 0)
         {
             rb2d.velocity = new Vector2(-moveSpeed, rb2d.velocity.y); 
             transform.localScale = new Vector2(-1f, 1f);
-            animator.SetTrigger("Walk");
+            if(isGround)
+            animator.SetBool("Walk",true);
             musicRun.loop = true;
         }
         else
         {
-           rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+           
+            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             musicRun.Pause();
+            //animator.SetTrigger("Jump");
+            animator.SetBool("Walk", false);
+
         }
-        //animator.SetTrigger("isIdle");
+        animator.SetTrigger("Idle");
+        
 
     }
     private void FixedUpdate()
@@ -85,13 +95,15 @@ public class MovePlayer : MonoBehaviour
         int val = colider.Raycast(Vector2.down, result, colider.size.y/2+0.05f);
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
         //if(hit.collider!=null)
-        if(isGround==false&&val!=0)
+        //if(isGround&&val!=0)
+        if (!isGround && val != 0)
         {
             animator.SetTrigger("Grounded");
-            
+            animator.SetBool("isGrounded",true);
         }
-        isGround = val != 0;
+        isGround = val != 0; 
     }
+    
 }
     
 

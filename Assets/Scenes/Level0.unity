@@ -658,7 +658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -2.97, y: -0.81, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -831,6 +831,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d907c280be2054cb14adddea19f433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1363501676 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2659784455700733069, guid: a8d324c19c976b141965ee817aec640f,
+    type: 3}
+  m_PrefabInstance: {fileID: 9120866332467298381}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1995931183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1193,12 +1199,12 @@ PrefabInstance:
     - target: {fileID: 3663486878521663877, guid: a28582d38d5ad374c9a52549361ac375,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.83
+      value: -2.23
       objectReference: {fileID: 0}
     - target: {fileID: 3663486878521663877, guid: a28582d38d5ad374c9a52549361ac375,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.41
       objectReference: {fileID: 0}
     - target: {fileID: 3663486878521663878, guid: a28582d38d5ad374c9a52549361ac375,
         type: 3}
@@ -1573,12 +1579,12 @@ PrefabInstance:
     - target: {fileID: 2659784455700733069, guid: a8d324c19c976b141965ee817aec640f,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.3025
+      value: 1.1577778
       objectReference: {fileID: 0}
     - target: {fileID: 2659784455700733069, guid: a8d324c19c976b141965ee817aec640f,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.71
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 2659784455700733069, guid: a8d324c19c976b141965ee817aec640f,
         type: 3}
@@ -1600,6 +1606,11 @@ PrefabInstance:
       propertyPath: jump
       value: 
       objectReference: {fileID: 8300000, guid: 2ba254df6d2fa7f4a98789b7632a448e, type: 3}
+    - target: {fileID: 3072812850399329873, guid: a8d324c19c976b141965ee817aec640f,
+        type: 3}
+      propertyPath: colider
+      value: 
+      objectReference: {fileID: 1363501676}
     - target: {fileID: 5778205660201027795, guid: a8d324c19c976b141965ee817aec640f,
         type: 3}
       propertyPath: player

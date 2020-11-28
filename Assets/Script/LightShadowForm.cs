@@ -11,13 +11,14 @@ public enum Form
 }
 public class LightShadowForm : LightEvent
 {
+
     public Form state=Form.Light;
     public Animator animator;
-
     public override void Awake()
     {
         base.Awake();
         animator = GetComponent<Animator>();
+
     }
     public override void OnLightEnter()
     {
@@ -31,7 +32,9 @@ public class LightShadowForm : LightEvent
         base.OnLightOut();
         //spriteRenderer.color = Color.black;
         state = Form.Shadow;
+        animator.SetBool("isChange", true);
         animator.SetTrigger("ToShadow");
         animator.SetBool("Light", false);
     }
+    
 }
