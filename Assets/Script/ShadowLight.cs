@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public class ShadowLight : MonoBehaviour
 {
     public float degree;
-    private float perDegreee = 0.5f;
+    private float perDegreee = 0.1f;
     public MeshFilter meshFilter;
     public Camera lightCamera;
     public Material lightMat;
@@ -63,7 +63,7 @@ public class ShadowLight : MonoBehaviour
                 if (res.collider != null)
                 {
                     trueHitFlag = true;
-                    vertex.Add(res.point - res.normal * 0.2f);
+                    vertex.Add(res.point - res.normal * 0.1f);
 
                     LightEvent target = res.collider.GetComponent<LightEvent>();
                     if (target)
@@ -93,7 +93,7 @@ public class ShadowLight : MonoBehaviour
                 triangles[3 * i + 1] = 0;
                 triangles[3 * i + 2] = i + 2;
             }
-            Debug.Log(vertex.Count);
+            //Debug.Log(vertex.Count);
             mesh.vertices = vertex.ToArray();
             mesh.triangles = triangles;
             mesh.uv = uv;
