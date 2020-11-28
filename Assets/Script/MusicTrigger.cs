@@ -7,8 +7,8 @@ public class MusicTrigger : MonoBehaviour
  
 
     public LightShadowForm player;
-    public AudioClip openDoors;
-    public AudioClip turnMachine;
+    public AudioClip brokenDoors;
+    public AudioClip turnOnOffMachine;
     public AudioClip createBridge;
     private bool isEnter;
     private bool isBroken;
@@ -50,13 +50,13 @@ public class MusicTrigger : MonoBehaviour
     {
         if (Input.GetKeyDown("v") && isEnter)
         {
-            music.clip = turnMachine;
+            music.clip = turnOnOffMachine;
             music.Play();
            
         }
         if (Input.GetKeyDown("v") && isBroken)
         {
-            music.clip = openDoors;
+            music.clip = brokenDoors;
             music.Play();
             isCreate = false;
         }

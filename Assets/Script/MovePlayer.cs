@@ -61,14 +61,14 @@ public class MovePlayer : MonoBehaviour
             
             rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);       
             transform.localScale = new Vector2(1f, 1f);
-            animator.SetTrigger("isRun");
+            animator.SetTrigger("Walk");
             musicRun.loop = true;
         }        
         else if (Input.GetAxisRaw("Horizontal") < 0)
         {
             rb2d.velocity = new Vector2(-moveSpeed, rb2d.velocity.y); 
             transform.localScale = new Vector2(-1f, 1f);
-            animator.SetTrigger("isRun");
+            animator.SetTrigger("Walk");
             musicRun.loop = true;
         }
         else
@@ -76,7 +76,7 @@ public class MovePlayer : MonoBehaviour
            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             musicRun.Pause();
         }
-        animator.SetTrigger("isIdle");
+        //animator.SetTrigger("isIdle");
 
     }
     private void FixedUpdate()
