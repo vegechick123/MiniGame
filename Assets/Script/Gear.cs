@@ -19,9 +19,9 @@ public class Gear : MonoBehaviour
     public int curIndexHorizon = 0;
     public int curIndexRotation = 0;
     public int max = 10;
-    public float angle { get { return rotation[curIndexRotation]; } }
+    public float angle { get { return rotation.Length <= 0 ? m_rigidbody2D.rotation:rotation[curIndexRotation]; } }
     public Vector2 targetPosition { get { 
-            return  new Vector2(horizon.Length<=0?m_rigidbody2D.position.x:horizon[curIndexHorizon],
+            return  new Vector2(horizon.Length <= 0 ? m_rigidbody2D.position.x:horizon[curIndexHorizon],
                 verticle.Length <= 0 ? m_rigidbody2D.position.y : verticle[curIndexVertical]); } }
 
     private void Awake()
@@ -30,8 +30,8 @@ public class Gear : MonoBehaviour
     }
     public void ChangeHorizon(int chageValue)
     {
-        int targetIndex = Mathf.Clamp(curIndexVertical + chageValue, 0, horizon.Length-1);
-        curIndexVertical = targetIndex;
+        int targetIndex = Mathf.Clamp(curIndexHorizon + chageValue, 0, horizon.Length-1);
+        curIndexHorizon = targetIndex;
     }
     public void ChangeVerticle(int chageValue)
     {
