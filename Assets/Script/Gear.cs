@@ -41,15 +41,6 @@ public class Gear : MonoBehaviour
         music.Play();
         music.loop = true;
     }
-    void Refresh(int targetIndex)
-    {
-        if (0 <= targetIndex && targetIndex < position.Length)
-        {
-            transform.localPosition= position[targetIndex];
-            transform.localRotation = Quaternion.Euler(new Vector3(0, 0, rotation[targetIndex]));
-            curIndex = targetIndex;
-        }
-    }
     public void ChangeHorizon(int chageValue)
     {
         int targetIndex = Mathf.Clamp(curIndexVertical + chageValue, 0, horizon.Length-1);
