@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class ShadowLight : MonoBehaviour
 {
     public float degree;
     private float perDegreee = 0.5f;
     public MeshFilter meshFilter;
+    public Camera lightCamera;
+    public Material lightMat;
+    public RenderTexture renderTexture;
+    public CommandBuffer commandBuffer;
+    private Mesh mesh;
     struct Range
     {
         public float minimum;
@@ -21,13 +27,16 @@ public class ShadowLight : MonoBehaviour
             return new Range(a.minimum + degree, a.maxmum + degree);
         }
     }
+    private void Awake()
+    {
+        mesh = new Mesh();
+    }
     private void FixedUpdate()
     {
 
         float current = transform.rotation.eulerAngles.z;
         Range range = new Range(current - degree / 2, current + degree / 2);
         RayCastRange(range);
-
     }
     void RayCastRange(Range range)
     {
@@ -35,10 +44,10 @@ public class ShadowLight : MonoBehaviour
 
         List<Vector3> vertex = new List<Vector3>();
         vertex.Add(transform.position);
-        
+
         do
         {
-            curRange+=perDegreee;
+            curRange += perDegreee;
             float curRad = curRange * Mathf.Deg2Rad;
             Vector2 direction = new Vector2(Mathf.Cos(curRad), Mathf.Sin(curRad));
             RaycastHit2D[] ress = Physics2D.RaycastAll(transform.position, direction);
@@ -54,22 +63,22 @@ public class ShadowLight : MonoBehaviour
                 if (res.collider != null)
                 {
                     trueHitFlag = true;
-                    vertex.Add(res.point-res.normal*0.2f);
+                    vertex.Add(res.point - res.normal * 0.2f);
 
                     LightEvent target = res.collider.GetComponent<LightEvent>();
                     if (target)
                         target.currameHit = true;
                 }
-                    
+
                 break;
             }
-            if(!trueHitFlag)
+            if (!trueHitFlag)
             {
                 vertex.Add(transform.position + 100 * direction.Vec2ToVec3());
             }
         }
         while (curRange < range.maxmum);
-        Mesh mesh = new Mesh();
+
         if (vertex.Count > 3)
         {
             int[] triangles = new int[3 * (vertex.Count - 2)];
@@ -88,9 +97,27 @@ public class ShadowLight : MonoBehaviour
             mesh.vertices = vertex.ToArray();
             mesh.triangles = triangles;
             mesh.uv = uv;
+            //Graphics.DrawMesh(mesh, Matrix4x4.identity, lightMat, 0, lightCamera);
             meshFilter.mesh = mesh;
         }
 
     }
+    void OnEnable()
+    {
+        Camera cam = Camera.main;
+        commandBuffer = null;
+        // Did we already add the command buffer on this camera? Nothing to do then.
+        commandBuffer = new CommandBuffer();
+        commandBuffer.name = "LightSource";
+        
+        int id = Shader.PropertyToID("_LightSourceTexture");
+        commandBuffer.SetRenderTarget(renderTexture);
+        commandBuffer.ClearRenderTarget(true,true,Color.black);
+        commandBuffer.DrawMesh(mesh, Matrix4x4.identity, lightMat);
+        commandBuffer.SetGlobalTexture(id, renderTexture);
+        commandBuffer.SetRenderTarget(cam.targetTexture);
 
+        cam.AddCommandBuffer(CameraEvent.BeforeForwardOpaque, commandBuffer);
+
+    }
 }

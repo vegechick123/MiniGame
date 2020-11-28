@@ -193,6 +193,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   degree: 70
   meshFilter: {fileID: 3663486878189494453}
+  lightCamera: {fileID: 0}
+  lightMat: {fileID: 2100000, guid: 3ccd9d5c8b7378f49a0c76c0e1595557, type: 2}
+  renderTexture: {fileID: 0}
 --- !u!114 &3663486878521663879
 MonoBehaviour:
   m_ObjectHideFlags: 0

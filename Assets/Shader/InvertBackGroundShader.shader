@@ -147,6 +147,7 @@ Shader "GrabPassInvert"
             float4 _LightTex_ST;
             sampler2D _ShadowTex;
             float4 _ShadowTex_ST;
+            sampler2D _LightSourceTexture;
             v2f vert(appdata v) {
                 v2f o;
                 o.pos = UnityObjectToClipPos(v.vertex);
@@ -160,6 +161,7 @@ Shader "GrabPassInvert"
             half4 frag(v2f i) : SV_Target
             {
                 half4 bgcolor = tex2Dproj(_BackgroundTexture, i.grabPos);
+                //return bgcolor;
                 //return bgcolor;
                 //return 1-bgcolor;
                 //return fixed4(bgcolor.rgb,1);

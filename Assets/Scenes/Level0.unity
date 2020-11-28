@@ -1096,6 +1096,11 @@ PrefabInstance:
       propertyPath: degree
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 3663486878521663878, guid: a28582d38d5ad374c9a52549361ac375,
+        type: 3}
+      propertyPath: renderTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 314808573632eb74f81bd3b1167e07ba, type: 2}
     - target: {fileID: 3663486878521663879, guid: a28582d38d5ad374c9a52549361ac375,
         type: 3}
       propertyPath: rotation.Array.data[0]
