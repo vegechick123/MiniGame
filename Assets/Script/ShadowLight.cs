@@ -55,6 +55,8 @@ public class ShadowLight : MonoBehaviour
             for (int i = 0; i < ress.Length; i++)
             {
                 RaycastHit2D res = ress[i];
+                if (res.collider.tag == "door")
+                    continue;
                 if (res.collider.tag == "Player")
                 {
                     res.collider.GetComponent<LightShadowForm>().currameHit = true;
