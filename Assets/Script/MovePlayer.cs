@@ -92,7 +92,7 @@ public class MovePlayer : MonoBehaviour
     private void FixedUpdate()
     {
         RaycastHit2D[] result = new RaycastHit2D[5];
-        int val = colider.Raycast(Vector2.down, result, colider.size.y/2+0.05f);
+        int val = colider.Cast(Vector2.down, result,0.05f);
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
         //if(hit.collider!=null)
         //if(isGround&&val!=0)
