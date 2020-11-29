@@ -20,7 +20,6 @@ public class EyesMoving : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(this.transform.position);
         dir = startPos - player.transform.position;
         dir = dir.normalized;
         this.transform.position = Vector2.MoveTowards(this.transform.position, startPos  - dir * moveAbandonRadius,eyesMoveSpeed);
