@@ -4958,6 +4958,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 727376401}
-  brokenDoors: {fileID: 8300000, guid: 1954b3adaa578964cad315d714cd36ee, type: 3}
+  brokenDoors: {fileID: 8300000, guid: 4327976fbadad304b8640299dc1bdb08, type: 3}
   turnOnOffMachine: {fileID: 8300000, guid: 06f1ede391bbdc24b845317784ea528c, type: 3}
   createBridge: {fileID: 8300000, guid: 1404c9086c3936349965f15cfa516259, type: 3}

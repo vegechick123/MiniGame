@@ -100,7 +100,7 @@ public class MovePlayer : MonoBehaviour
         {
             animator.SetTrigger("Grounded");
             Instantiate(prefabGroudedParticle, transform.position - new Vector3(0, colider.size.y / 2, 0), prefabGroudedParticle.transform.rotation,null);
-            animator.SetBool("isGrounded",true);
+         
         }
         isGround = val != 0; 
     }
