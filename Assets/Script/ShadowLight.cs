@@ -6,11 +6,11 @@ using UnityEngine.Rendering;
 public class ShadowLight : MonoBehaviour
 {
     public float degree;
-    private float perDegreee = 0.5f;
+    private float perDegreee = 0.1f;
     public MeshFilter meshFilter;
     public Camera lightCamera;
     public Material lightMat;
-    public RenderTexture renderTexture;
+    //public RenderTexture renderTexture;
     public CommandBuffer commandBuffer;
     private Mesh mesh;
     struct Range
@@ -55,6 +55,8 @@ public class ShadowLight : MonoBehaviour
             for (int i = 0; i < ress.Length; i++)
             {
                 RaycastHit2D res = ress[i];
+                if (res.collider.tag == "door")
+                    continue;
                 if (res.collider.tag == "Player")
                 {
                     res.collider.GetComponent<LightShadowForm>().currameHit = true;
@@ -63,7 +65,7 @@ public class ShadowLight : MonoBehaviour
                 if (res.collider != null)
                 {
                     trueHitFlag = true;
-                    vertex.Add(res.point - res.normal * 0.2f);
+                    vertex.Add(res.point - res.normal * 0.1f);
 
                     LightEvent target = res.collider.GetComponent<LightEvent>();
                     if (target)
@@ -93,7 +95,7 @@ public class ShadowLight : MonoBehaviour
                 triangles[3 * i + 1] = 0;
                 triangles[3 * i + 2] = i + 2;
             }
-            Debug.Log(vertex.Count);
+            //Debug.Log(vertex.Count);
             mesh.vertices = vertex.ToArray();
             mesh.triangles = triangles;
             mesh.uv = uv;
@@ -109,7 +111,10 @@ public class ShadowLight : MonoBehaviour
         // Did we already add the command buffer on this camera? Nothing to do then.
         commandBuffer = new CommandBuffer();
         commandBuffer.name = "LightSource";
-        
+        RenderTexture renderTexture = new RenderTexture(cam.pixelWidth, cam.pixelHeight, 0)
+        {
+
+        };
         int id = Shader.PropertyToID("_LightSourceTexture");
         commandBuffer.SetRenderTarget(renderTexture);
         commandBuffer.ClearRenderTarget(true,true,Color.black);

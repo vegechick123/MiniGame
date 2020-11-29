@@ -208,8 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d907c280be2054cb14adddea19f433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 0
-  moveSpeed: 0
+  rotateSpeed: 90
+  moveSpeed: 10
   externForce: 0
   verticle: []
   horizon: []

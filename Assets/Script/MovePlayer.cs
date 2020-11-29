@@ -12,11 +12,11 @@ public class MovePlayer : MonoBehaviour
 
     public bool isGround;
     public BoxCollider2D colider;
-
+    public GameObject prefabGroudedParticle;
     private bool touchGround;
     private Rigidbody2D rb2d;
     private Animator animator;
-    private GameObject Player;
+    private GameObject player;
     private AudioSource musicRun;
     private AudioSource musicJump;
 
@@ -99,6 +99,7 @@ public class MovePlayer : MonoBehaviour
         if (!isGround && val != 0)
         {
             animator.SetTrigger("Grounded");
+            Instantiate(prefabGroudedParticle, transform.position - new Vector3(0, colider.size.y / 2, 0), prefabGroudedParticle.transform.rotation,null);
             animator.SetBool("isGrounded",true);
         }
         isGround = val != 0; 

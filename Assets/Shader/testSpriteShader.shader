@@ -58,7 +58,7 @@ Shader "Sprites/Revert"
                 float4 grabPos : TEXCOORD1;
                 UNITY_VERTEX_OUTPUT_STEREO
             };
-            sampler2D _BackgroundTexture;
+            sampler2D _LightSourceTexture;
             myv2f MySpriteVert(myappdata_t IN)
             {
                 myv2f OUT;
@@ -79,17 +79,20 @@ Shader "Sprites/Revert"
             }
             fixed4 MySpriteFrag(myv2f IN) : SV_Target
             {
-                half4 bgcolor = tex2Dproj(_BackgroundTexture, IN.grabPos);
+                float2 uv =IN.grabPos.xy/IN.grabPos.w;
+                uv.y=1-uv.y;
+                half4 bgcolor = tex2D(_LightSourceTexture, uv);
+                
                 fixed4 color = tex2D (_MainTex, IN.texcoord);
-
+                //return color;
                 #if ETC1_EXTERNAL_ALPHA
                     fixed4 alpha = tex2D (_AlphaTex, IN.texcoord);
                     color.a = lerp (color.a, alpha.r, _EnableExternalAlpha);
                 #endif
-                fixed val = abs(color.r - bgcolor.r);
-                if(val<0.5)
-                    color.rgb=1-color.rgb;
 
+                fixed val = bgcolor.r;
+                if(val>0.5)
+                    color.rgb=1-color.rgb;
                 color.rgb*=color.a;
                 //color.rgb *= color.a;
                 //fixed val = abs(color.r - bgcolor.r);
