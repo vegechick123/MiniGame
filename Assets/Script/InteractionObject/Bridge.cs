@@ -5,6 +5,8 @@ using UnityEngine;
 public class Bridge : InteractionObject
 {
     public Collider2D bridgeColider;
+    public GameObject particle;
+
     SpriteRenderer spriteRender;
     private void Awake()
     {
@@ -15,6 +17,7 @@ public class Bridge : InteractionObject
         base.OnInteraction(inputKey);
         bridgeColider.enabled = true;
         spriteRender.enabled = true;
+        Destroy(particle);
     }
 
 }
