@@ -19,7 +19,7 @@ public class MovePlayer : MonoBehaviour
     private GameObject player;
     private AudioSource musicRun;
     private AudioSource musicJump;
-
+    public bool disableInput;
     void Start()
     {
         musicRun = gameObject.AddComponent<AudioSource>();
@@ -40,60 +40,70 @@ public class MovePlayer : MonoBehaviour
         bool ver = Input.GetKeyDown(KeyCode.Space);
         if((Input.GetKeyUp("right") && Input.GetKeyUp("left")))
             animator.SetBool("IsGround", false);
-        if (ver && isGround)
+        if (disableInput)
         {
-
-            rb2d.velocity = new Vector2(0, jumpForce);
-
-           // animator.SetTrigger("Jump");
-           // animator.SetBool("IsGround", true);
-            animator.SetBool("JumpBool", true);
-
-        }
-        else
-        {
-           // animator.SetBool("IsGround", false);
-            animator.SetTrigger("Idle");
-            animator.SetBool("JumpBool", false);
-        }
-        //audio
-        if ((Input.GetKeyDown("right") || Input.GetKeyDown("left")) && isGround)
-        {
-            musicRun.clip = run;
-            musicRun.Play();
-        }
-        
-            if (Input .GetKeyDown("space")&&isGround )
-        {
-            musicJump.clip = jump;
-            musicJump.Play();
-        }
-       
-        if (Input.GetAxisRaw("Horizontal") > 0)
-        {
-            
-            rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);       
-            transform.localScale = new Vector2(1f, 1f);
-            if (isGround)
-            animator.SetBool("Walk",true);
-            musicRun.loop = true;
-        }        
-        else if (Input.GetAxisRaw("Horizontal") < 0)
-        {
-            rb2d.velocity = new Vector2(-moveSpeed, rb2d.velocity.y); 
-            transform.localScale = new Vector2(-1f, 1f);
-            if(isGround)
-            animator.SetBool("Walk",true);
-            musicRun.loop = true;
-        }
-        else
-        {
-           
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             musicRun.Pause();
             //animator.SetTrigger("Jump");
             animator.SetBool("Walk", false);
+        }
+        else
+        {
+            if (ver && isGround)
+            {
 
+                rb2d.velocity = new Vector2(0, jumpForce);
+
+                // animator.SetTrigger("Jump");
+                // animator.SetBool("IsGround", true);
+                animator.SetBool("JumpBool", true);
+
+            }
+            else
+            {
+                // animator.SetBool("IsGround", false);
+                animator.SetTrigger("Idle");
+                animator.SetBool("JumpBool", false);
+            }
+            //audio
+            if ((Input.GetKeyDown("right") || Input.GetKeyDown("left")) && isGround)
+            {
+                musicRun.clip = run;
+                musicRun.Play();
+            }
+
+            if (Input.GetKeyDown("space") && isGround)
+            {
+                musicJump.clip = jump;
+                musicJump.Play();
+            }
+
+            if (Input.GetAxisRaw("Horizontal") > 0)
+            {
+
+                rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);
+                transform.localScale = new Vector2(1f, 1f);
+                if (isGround)
+                    animator.SetBool("Walk", true);
+                musicRun.loop = true;
+            }
+            else if (Input.GetAxisRaw("Horizontal") < 0)
+            {
+                rb2d.velocity = new Vector2(-moveSpeed, rb2d.velocity.y);
+                transform.localScale = new Vector2(-1f, 1f);
+                if (isGround)
+                    animator.SetBool("Walk", true);
+                musicRun.loop = true;
+            }
+            else
+            {
+
+                rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+                musicRun.Pause();
+                //animator.SetTrigger("Jump");
+                animator.SetBool("Walk", false);
+
+            }
         }
         animator.SetTrigger("Idle");
         

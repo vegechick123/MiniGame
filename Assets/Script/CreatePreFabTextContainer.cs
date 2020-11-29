@@ -20,19 +20,32 @@ public class CreatePreFabTextContainer : MonoBehaviour
     {
         char[] arr = input.ToCharArray();
 
+        Create(arr,true);
+
+    }
+    public void Clear()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+    public void Create(char[] arr, bool delay = false, float deltatime = 1f)
+    {
+        Clear();
         for (int i = 0; i < arr.Length; i++)
         {
 
             GameObject textCtner = textContainer;
             GameObject ContainTxt =
-                    Instantiate(textCtner, 
+                    Instantiate(textCtner,
                     new Vector3(TextPreFabContainer.transform.position.x + i * 20, TextPreFabContainer.transform.position.y, 0f),
-                    Quaternion.identity)as GameObject ;
+                    Quaternion.identity) as GameObject;
             ContainTxt.transform.SetParent(TextPreFabContainer.transform);
-            ContainTxt.GetComponentInChildren<Text>().text = arr[(int)i].ToString();
-            ContainTxt.GetComponentInChildren<Text>().color = color;
+            Text text = ContainTxt.GetComponentInChildren<Text>();
+            text.text = arr[(int)i].ToString();
+            text.color = color;
         }
-
     }
 
 }

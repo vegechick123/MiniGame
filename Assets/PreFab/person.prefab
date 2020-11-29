@@ -4922,6 +4922,7 @@ MonoBehaviour:
   colider: {fileID: 2659784455700733069}
   prefabGroudedParticle: {fileID: 5202867745731950233, guid: 22f3c48735087ef4b821dd11fbdb0d42,
     type: 3}
+  disableInput: 0
 --- !u!61 &2659784455700733069
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4946,7 +4947,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.86833334, y: 0.86833334}
+  m_Size: {x: 1.2, y: 1.2}
   m_EdgeRadius: 0
 --- !u!114 &5778205660201027795
 MonoBehaviour:
