@@ -38,13 +38,23 @@ public class MovePlayer : MonoBehaviour
     {
         //float h = Input.GetAxis("Horizontal");
         bool ver = Input.GetKeyDown(KeyCode.Space);
+        if((Input.GetKeyUp("right") && Input.GetKeyUp("left")))
+            animator.SetBool("IsGround", false);
         if (ver && isGround)
         {
-            
-            rb2d.velocity=new Vector2(0,jumpForce);
-            
-            animator.SetTrigger("Jump");
-           
+
+            rb2d.velocity = new Vector2(0, jumpForce);
+
+           // animator.SetTrigger("Jump");
+           // animator.SetBool("IsGround", true);
+            animator.SetBool("JumpBool", true);
+
+        }
+        else
+        {
+           // animator.SetBool("IsGround", false);
+            animator.SetTrigger("Idle");
+            animator.SetBool("JumpBool", false);
         }
         //audio
         if ((Input.GetKeyDown("right") || Input.GetKeyDown("left")) && isGround)
@@ -92,7 +102,7 @@ public class MovePlayer : MonoBehaviour
     private void FixedUpdate()
     {
         RaycastHit2D[] result = new RaycastHit2D[5];
-        int val = colider.Raycast(Vector2.down, result, colider.size.y/2+0.05f);
+        int val = colider.Cast(Vector2.down, result,0.05f);
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
         //if(hit.collider!=null)
         //if(isGround&&val!=0)
@@ -100,7 +110,7 @@ public class MovePlayer : MonoBehaviour
         {
             animator.SetTrigger("Grounded");
             Instantiate(prefabGroudedParticle, transform.position - new Vector3(0, colider.size.y / 2, 0), prefabGroudedParticle.transform.rotation,null);
-            animator.SetBool("isGrounded",true);
+         
         }
         isGround = val != 0; 
     }

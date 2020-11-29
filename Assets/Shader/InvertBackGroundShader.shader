@@ -56,7 +56,8 @@ Shader "GrabPassInvert"
                 float2 uv =i.grabPos.xy/i.grabPos.w;
 
                 half4 bgcolor = tex2D(_LightSourceTexture, uv);
-  
+                
+
                 fixed4 lightCol = tex2D(_LightTex, i.uv);
                 lightCol.rgb =lightCol.rgb*lightCol.a+bgcolor.rgb*(1-lightCol.a);
                 fixed4 shadowCol = tex2D(_ShadowTex, i.uv);

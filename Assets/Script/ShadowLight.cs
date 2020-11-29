@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public class ShadowLight : MonoBehaviour
 {
     public float degree;
-    private float perDegreee = 0.1f;
+    private float perDegreee = 0.5f;
     public MeshFilter meshFilter;
     public Camera lightCamera;
     public Material lightMat;
@@ -104,7 +104,7 @@ public class ShadowLight : MonoBehaviour
         }
 
     }
-    void OnEnable()
+    void Start()
     {
         Camera cam = Camera.main;
         commandBuffer = null;
@@ -113,7 +113,7 @@ public class ShadowLight : MonoBehaviour
         commandBuffer.name = "LightSource";
         RenderTexture renderTexture = new RenderTexture(cam.pixelWidth, cam.pixelHeight, 0)
         {
-
+            filterMode = FilterMode.Bilinear
         };
         int id = Shader.PropertyToID("_LightSourceTexture");
         commandBuffer.SetRenderTarget(renderTexture);
@@ -124,5 +124,10 @@ public class ShadowLight : MonoBehaviour
 
         cam.AddCommandBuffer(CameraEvent.BeforeForwardOpaque, commandBuffer);
 
+    }
+    private void OnDestroy()
+    {
+        if(commandBuffer!=null&&Camera.main!=null)
+            Camera.main.RemoveCommandBuffer(CameraEvent.BeforeForwardOpaque, commandBuffer);
     }
 }

@@ -11,7 +11,7 @@ public class Exit : MonoBehaviour
         if (bGameEnd)
             return;
         bGameEnd = true;
-        this.InvokeAfter(()=>SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1),2f);
+        this.InvokeAfter(()=>SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1),4f);
         Camera.main.GetComponent<Animator>().SetTrigger("TurnWhite");
     }
 }
