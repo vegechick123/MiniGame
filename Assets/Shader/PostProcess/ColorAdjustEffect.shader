@@ -57,7 +57,7 @@ Shader "Custom/ColorAdjustEffect"
 					//saturation饱和度：首先根据公式计算同等亮度情况下饱和度最低的值：
 					fixed gray = 0.2125 * renderTex.r + 0.7154 * renderTex.g + 0.0721 * renderTex.b;
 					//根据Saturation在饱和度最低的图像和原图之间差值
-					finalColor = lerp(_ColorRange.x*fixed3(1,1,1), _ColorRange.y*fixed3(1,1,1), gray);
+					finalColor = lerp(_ColorRange.x*fixed3(1,1,1), _ColorRange.y*fixed3(1,1,1), renderTex.rgb);
 					//contrast对比度：首先计算对比度最低的值
 					//返回结果，alpha通道不变
 					return fixed4(finalColor, renderTex.a);
