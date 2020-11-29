@@ -85,7 +85,7 @@ Shader "Sprites/Revert"
                 //uv.y=1-uv.y;
                 half4 bgcolor = tex2D(_LightSourceTexture, uv);
                 
-                fixed4 color = tex2D (_MainTex, IN.texcoord);
+                fixed4 color = tex2D (_MainTex, IN.texcoord)*IN.color;
                 //return color;
                 #if ETC1_EXTERNAL_ALPHA
                     fixed4 alpha = tex2D (_AlphaTex, IN.texcoord);
