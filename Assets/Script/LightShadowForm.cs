@@ -38,7 +38,7 @@ public class LightShadowForm : LightEvent
         animator.SetBool("isChange", true);
         animator.SetTrigger("ToShadow");
         animator.SetBool("Light", false);
-        Instantiate(prefabDarkParticle, transform.position, prefabDarkParticle.transform.rotation, null);
+        //Instantiate(prefabDarkParticle, transform.position, prefabDarkParticle.transform.rotation, null);
     }
     
 }
