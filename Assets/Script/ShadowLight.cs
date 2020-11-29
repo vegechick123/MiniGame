@@ -113,7 +113,7 @@ public class ShadowLight : MonoBehaviour
         commandBuffer.name = "LightSource";
         RenderTexture renderTexture = new RenderTexture(cam.pixelWidth, cam.pixelHeight, 0)
         {
-
+            filterMode = FilterMode.Bilinear
         };
         int id = Shader.PropertyToID("_LightSourceTexture");
         commandBuffer.SetRenderTarget(renderTexture);
@@ -127,7 +127,7 @@ public class ShadowLight : MonoBehaviour
     }
     private void OnDestroy()
     {
-        if(commandBuffer!=null)
+        if(commandBuffer!=null&&Camera.main!=null)
             Camera.main.RemoveCommandBuffer(CameraEvent.BeforeForwardOpaque, commandBuffer);
     }
 }
