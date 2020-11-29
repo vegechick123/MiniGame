@@ -4913,7 +4913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 15
   moveSpeed: 5
-  run: {fileID: 8300000, guid: 3cc70b60b8a0c5c40a9c839978465a21, type: 3}
+  run: {fileID: 8300000, guid: 6c34c17a8736a1641886613b5679b6a5, type: 3}
   jump: {fileID: 8300000, guid: 2ba254df6d2fa7f4a98789b7632a448e, type: 3}
   isGround: 0
   colider: {fileID: 2659784455700733069}
