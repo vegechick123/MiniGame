@@ -38,13 +38,23 @@ public class MovePlayer : MonoBehaviour
     {
         //float h = Input.GetAxis("Horizontal");
         bool ver = Input.GetKeyDown(KeyCode.Space);
+        if((Input.GetKeyUp("right") && Input.GetKeyUp("left")))
+            animator.SetBool("IsGround", false);
         if (ver && isGround)
         {
-            
-            rb2d.velocity=new Vector2(0,jumpForce);
-            
-            animator.SetTrigger("Jump");
-           
+
+            rb2d.velocity = new Vector2(0, jumpForce);
+
+           // animator.SetTrigger("Jump");
+           // animator.SetBool("IsGround", true);
+            animator.SetBool("JumpBool", true);
+
+        }
+        else
+        {
+           // animator.SetBool("IsGround", false);
+            animator.SetTrigger("Idle");
+            animator.SetBool("JumpBool", false);
         }
         //audio
         if ((Input.GetKeyDown("right") || Input.GetKeyDown("left")) && isGround)
