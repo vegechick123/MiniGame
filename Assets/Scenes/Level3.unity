@@ -242,7 +242,7 @@ MonoBehaviour:
   interationKey: 118
   canTrigger: 0
   player: {fileID: 0}
-  xMove: 1
+  xMove: 2
   moveSpeed: 10
   block: {fileID: 379640277}
 --- !u!1001 &277055588
@@ -768,6 +768,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6214221536854576070, guid: 3f3c7521b90f2d64d954fee3a9c1ce5a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d42439da195b39141aaa3713d91e9a31,
+        type: 3}
     - target: {fileID: 6214221536854576071, guid: 3f3c7521b90f2d64d954fee3a9c1ce5a,
         type: 3}
       propertyPath: m_Name
@@ -1328,6 +1334,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6214221536854576070, guid: 3f3c7521b90f2d64d954fee3a9c1ce5a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a415e7f7b6f77b499e24ef91813eeb2,
+        type: 3}
     - target: {fileID: 6214221536854576071, guid: 3f3c7521b90f2d64d954fee3a9c1ce5a,
         type: 3}
       propertyPath: m_Name

@@ -76,6 +76,8 @@ MonoBehaviour:
   interationKey: 118
   canTrigger: 0
   player: {fileID: 0}
+  breakParticle: {fileID: 1343747262343465956, guid: c2eab56920077b24a9201b54a00b102c,
+    type: 3}
 --- !u!61 &5467116046290414544
 BoxCollider2D:
   m_ObjectHideFlags: 0
