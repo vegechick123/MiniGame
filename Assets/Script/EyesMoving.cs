@@ -6,9 +6,11 @@ using UnityEngine;
 public class EyesMoving : MonoBehaviour
 {
     public GameObject player;
-    public float  moveAbandonRadius;
-    public Vector3 startPos;
+    public float moveAbandonRadius;
     public float eyesMoveSpeed;
+
+
+    private Vector3 startPos;
     private Vector3 dir;
 
     private void Start()
