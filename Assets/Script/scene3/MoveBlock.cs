@@ -26,11 +26,7 @@ public class MoveBlock : InteractionObject
                 block.transform.position = new Vector2(block.transform.position.x + positionChange, block.transform.position.y);
                 counter++;
             }
-            else
-            {
-                counter = 0;
-                moving = false;
-            }
+          
         }
 
     }
