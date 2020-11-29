@@ -24,7 +24,9 @@ public class CreatePreFabTextContainer : MonoBehaviour
 
             GameObject textCtner = textContainer;
             GameObject ContainTxt =
-                    Instantiate(textCtner, new Vector3(TextPreFabContainer.transform.position.x + i * 20, TextPreFabContainer.transform.position.y, 0f), Quaternion.identity)as GameObject ;
+                    Instantiate(textCtner, 
+                    new Vector3(TextPreFabContainer.transform.position.x + i * 20, TextPreFabContainer.transform.position.y, 0f),
+                    Quaternion.identity)as GameObject ;
             ContainTxt.transform.SetParent(TextPreFabContainer.transform);
             ContainTxt.GetComponentInChildren<Text>().text = arr[(int)i].ToString();
             

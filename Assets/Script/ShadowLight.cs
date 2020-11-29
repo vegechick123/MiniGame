@@ -104,7 +104,7 @@ public class ShadowLight : MonoBehaviour
         }
 
     }
-    void OnEnable()
+    void Start()
     {
         Camera cam = Camera.main;
         commandBuffer = null;
@@ -124,5 +124,10 @@ public class ShadowLight : MonoBehaviour
 
         cam.AddCommandBuffer(CameraEvent.BeforeForwardOpaque, commandBuffer);
 
+    }
+    private void OnDestroy()
+    {
+        if(commandBuffer!=null)
+            Camera.main.RemoveCommandBuffer(CameraEvent.BeforeForwardOpaque, commandBuffer);
     }
 }
