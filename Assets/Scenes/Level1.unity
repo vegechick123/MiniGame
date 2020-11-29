@@ -2399,7 +2399,7 @@ PrefabInstance:
     - target: {fileID: 865951077109593744, guid: ed2533b33fdc40045a52458ebfb0f1b4,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 865951077109593745, guid: ed2533b33fdc40045a52458ebfb0f1b4,
         type: 3}
@@ -2464,7 +2464,12 @@ PrefabInstance:
     - target: {fileID: 865951077827231959, guid: ed2533b33fdc40045a52458ebfb0f1b4,
         type: 3}
       propertyPath: m_ConstraintCount
-      value: 10
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 865951077827231959, guid: ed2533b33fdc40045a52458ebfb0f1b4,
+        type: 3}
+      propertyPath: m_CellSize.x
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 865951078454693437, guid: ed2533b33fdc40045a52458ebfb0f1b4,
         type: 3}
@@ -2484,17 +2489,27 @@ PrefabInstance:
     - target: {fileID: 865951078454693437, guid: ed2533b33fdc40045a52458ebfb0f1b4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.25
+      value: 1.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 865951078454693437, guid: ed2533b33fdc40045a52458ebfb0f1b4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.14
       objectReference: {fileID: 0}
     - target: {fileID: 5376055594794696277, guid: ed2533b33fdc40045a52458ebfb0f1b4,
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5376055594794696277, guid: ed2533b33fdc40045a52458ebfb0f1b4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.62
+      objectReference: {fileID: 0}
     - target: {fileID: 5376055594794696279, guid: ed2533b33fdc40045a52458ebfb0f1b4,
         type: 3}
       propertyPath: input
-      value: "\u8F6F\u5F31\u7684\u4EBA\u8BF4\u8C0E\uFF0C\u80C6\u5C0F\u7684\u4EBA\u6B66\u88C5\u3002\u5149\u662F\u5149\uFF0C\u5F71\u662F\u5F71\u3002\u800C\u4F60\uFF0C\u53C8\u662F\u4EC0\u4E48\u6837\u7684\u5462\uFF1F"
+      value: "\u5149\u662F\u5149\uFF0C\u5F71\u662F\u5F71\u3002\u800C\u4F60\uFF0C\u53C8\u662F\u4EC0\u4E48\uFF1F"
       objectReference: {fileID: 0}
     - target: {fileID: 5376055594794696279, guid: ed2533b33fdc40045a52458ebfb0f1b4,
         type: 3}
