@@ -40,11 +40,13 @@ Shader "GrabPassInvert"
             sampler2D _ShadowTex;
             float4 _ShadowTex_ST;
             sampler2D _LightSourceTexture;
+            float4 _LightSourceTexture_TexelSize;
             v2f vert(appdata v) {
                 v2f o;
                 o.pos = UnityObjectToClipPos(v.vertex);
-                o.grabPos = ComputeGrabScreenPos(o.pos);
+                o.grabPos = ComputeScreenPos(o.pos);
                 o.uv = TRANSFORM_TEX(v.uv, _LightTex);
+
                 return o;
             }
 
@@ -52,7 +54,7 @@ Shader "GrabPassInvert"
             half4 frag(v2f i) : SV_Target
             {
                 float2 uv =i.grabPos.xy/i.grabPos.w;
-                uv.y=1-uv.y;
+
                 half4 bgcolor = tex2D(_LightSourceTexture, uv);
   
                 fixed4 lightCol = tex2D(_LightTex, i.uv);

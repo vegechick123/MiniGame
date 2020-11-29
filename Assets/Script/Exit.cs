@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Exit : MonoBehaviour
 {
-    public int levelNumber;
+    bool bGameEnd = false;
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        SceneManager.LoadScene("Level"+levelNumber);
+        if (bGameEnd)
+            return;
+        bGameEnd = true;
+        this.InvokeAfter(()=>SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1),2f);
+        Camera.main.GetComponent<Animator>().SetTrigger("TurnWhite");
     }
 }
