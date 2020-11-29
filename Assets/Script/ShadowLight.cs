@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public class ShadowLight : MonoBehaviour
 {
     public float degree;
-    private float perDegreee = 0.1f;
+    private float perDegreee = 0.5f;
     public MeshFilter meshFilter;
     public Camera lightCamera;
     public Material lightMat;

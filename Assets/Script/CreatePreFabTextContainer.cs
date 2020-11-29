@@ -9,6 +9,7 @@ public class CreatePreFabTextContainer : MonoBehaviour
     List<Text> text;
     public GameObject textContainer;
     public GameObject TextPreFabContainer;
+    public Color color;
     void Awake()
     {
        
@@ -29,7 +30,7 @@ public class CreatePreFabTextContainer : MonoBehaviour
                     Quaternion.identity)as GameObject ;
             ContainTxt.transform.SetParent(TextPreFabContainer.transform);
             ContainTxt.GetComponentInChildren<Text>().text = arr[(int)i].ToString();
-            
+            ContainTxt.GetComponentInChildren<Text>().color = color;
         }
 
     }
