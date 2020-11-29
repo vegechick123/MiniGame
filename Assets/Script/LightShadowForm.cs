@@ -14,6 +14,8 @@ public class LightShadowForm : LightEvent
 
     public Form state=Form.Light;
     public Animator animator;
+    public GameObject prefabDarkParticle;
+    public GameObject prefabLightParticle;
     public override void Awake()
     {
         base.Awake();
@@ -26,6 +28,7 @@ public class LightShadowForm : LightEvent
         state = Form.Light;
         animator.SetTrigger("ToLight");
         animator.SetBool("Light",true);
+        
     }
     public override void OnLightOut()
     {
@@ -35,6 +38,7 @@ public class LightShadowForm : LightEvent
         animator.SetBool("isChange", true);
         animator.SetTrigger("ToShadow");
         animator.SetBool("Light", false);
+        Instantiate(prefabDarkParticle, transform.position, prefabDarkParticle.transform.rotation, null);
     }
     
 }

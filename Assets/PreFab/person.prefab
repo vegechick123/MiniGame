@@ -4899,6 +4899,9 @@ MonoBehaviour:
   currameHit: 0
   state: 0
   animator: {fileID: 0}
+  prefabDarkParticle: {fileID: 5202867745731950233, guid: a594105161369464395810c5b4a4657f,
+    type: 3}
+  prefabLightParticle: {fileID: 0}
 --- !u!114 &3072812850399329873
 MonoBehaviour:
   m_ObjectHideFlags: 0
