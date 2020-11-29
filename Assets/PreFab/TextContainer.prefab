@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6104896142831169919}
-  - component: {fileID: 6104896142831169918}
+  - component: {fileID: 5241221877001003526}
   m_Layer: 5
   m_Name: TextContainer
   m_TagString: Untagged
@@ -32,12 +32,12 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.3, y: -136.12}
-  m_SizeDelta: {x: 125.41341, y: 20.57003}
+  m_AnchorMin: {x: 0.21182759, y: 0.77274776}
+  m_AnchorMax: {x: 0.21182759, y: 0.77274776}
+  m_AnchoredPosition: {x: -1, y: -3}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &6104896142831169918
+--- !u!95 &5241221877001003526
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -47,7 +47,7 @@ Animator:
   m_GameObject: {fileID: 6104896142831169904}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 77b8df3b7579ceb468d51b79f255ea1e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3a24670155512a64ca9a508686a09476, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -81,17 +81,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6104896142892256235}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6104896142831169919}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 21.1, y: -7.8}
-  m_SizeDelta: {x: 34, y: 10}
+  m_AnchorMin: {x: 0.24975744, y: 0.53000003}
+  m_AnchorMax: {x: 0.72024256, y: 0.69000006}
+  m_AnchoredPosition: {x: 2.2699966, y: 0}
+  m_SizeDelta: {x: 4.5376396, y: -0.0000038146973}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6104896142892256232
 CanvasRenderer:
