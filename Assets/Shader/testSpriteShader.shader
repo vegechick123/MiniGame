@@ -70,7 +70,8 @@ Shader "Sprites/Revert"
                 OUT.vertex = UnityObjectToClipPos(OUT.vertex);
                 OUT.texcoord = IN.texcoord;
                 OUT.color = IN.color * _Color * _RendererColor;
-                OUT.grabPos = ComputeGrabScreenPos(UnityObjectToClipPos(IN.vertex));
+                OUT.grabPos = ComputeScreenPos(UnityObjectToClipPos(IN.vertex));
+                
                 #ifdef PIXELSNAP_ON
                 OUT.vertex = UnityPixelSnap (OUT.vertex);
                 #endif
@@ -80,7 +81,8 @@ Shader "Sprites/Revert"
             fixed4 MySpriteFrag(myv2f IN) : SV_Target
             {
                 float2 uv =IN.grabPos.xy/IN.grabPos.w;
-                uv.y=1-uv.y;
+                //return fixed4(uv,0,0);
+                //uv.y=1-uv.y;
                 half4 bgcolor = tex2D(_LightSourceTexture, uv);
                 
                 fixed4 color = tex2D (_MainTex, IN.texcoord);
