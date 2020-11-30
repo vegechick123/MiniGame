@@ -1837,8 +1837,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a8c5a0dfd5e82f142a5fd725b2cd23f8, type: 3}
-    m_FontSize: 20
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1922,7 +1922,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2fc7b32f0f82347458d085e3ba44a7e0, type: 3}
-  m_Color: {r: 1, g: 0.7216981, b: 0.7216981, a: 0}
+  m_Color: {r: 1, g: 0.4764151, b: 0.4764151, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2572,6 +2572,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5853238730756112763, guid: d650892cd7747e6449c075cae1c7d6c8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 441bfd6304fbbe8478c6892b7471c06f,
+        type: 3}
     - target: {fileID: 7427772499682404136, guid: d650892cd7747e6449c075cae1c7d6c8,
         type: 3}
       propertyPath: m_Name

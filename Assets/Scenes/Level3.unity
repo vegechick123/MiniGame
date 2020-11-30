@@ -729,7 +729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &391280078
 RectTransform:
   m_ObjectHideFlags: 0
@@ -769,11 +769,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a8c5a0dfd5e82f142a5fd725b2cd23f8, type: 3}
-    m_FontSize: 23
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 6
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -781,7 +781,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7269\u9047\u5149\u7ED3\u5F71\uFF0C\u4E07\u7269\u7686\u6709\u56E0\u3002"
+  m_Text: 
 --- !u!222 &391280080
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1048,7 +1048,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 441bfd6304fbbe8478c6892b7471c06f,
+      objectReference: {fileID: 21300000, guid: c4171147454903845a3966d7b75554c2,
         type: 3}
     - target: {fileID: 7427772499682404136, guid: d650892cd7747e6449c075cae1c7d6c8,
         type: 3}

@@ -138,10 +138,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u6211\u8BF4\u8FC7\u6211\u4F1A\u6740\u4E86\u4ED6\uFF0C\u8FD9\u4E9B\u75DB\u82E6\u4E0D\u8BE5\u6211\u4E00\u4E2A\u4EBA\u627F\u62C5\u3002\u5982\u679C\u80FD\u6BC1\u6389\u4E00\u5207\u5C31\u597D\u4E86\u3002"
       objectReference: {fileID: 0}
+    - target: {fileID: 3746998322665915625, guid: b393ae6352672564ba706c85f0d41407,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 118
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746998322665915625, guid: b393ae6352672564ba706c85f0d41407,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746998322665915625, guid: b393ae6352672564ba706c85f0d41407,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 3746998323011254770, guid: b393ae6352672564ba706c85f0d41407,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 155
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 3746998323011254771, guid: b393ae6352672564ba706c85f0d41407,
         type: 3}
@@ -214,6 +229,21 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 4661342591107309192, guid: b393ae6352672564ba706c85f0d41407,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661342591107309192, guid: b393ae6352672564ba706c85f0d41407,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661342591107309192, guid: b393ae6352672564ba706c85f0d41407,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 5261294439150473232, guid: b393ae6352672564ba706c85f0d41407,
         type: 3}
       propertyPath: m_Text
@@ -222,7 +252,17 @@ PrefabInstance:
     - target: {fileID: 7643083290903177605, guid: b393ae6352672564ba706c85f0d41407,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -228
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643083290903177605, guid: b393ae6352672564ba706c85f0d41407,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643083290903177605, guid: b393ae6352672564ba706c85f0d41407,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b393ae6352672564ba706c85f0d41407, type: 3}
