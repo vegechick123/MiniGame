@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinnalEnd.unity
     guid: fcfcb09426e4a6440bde430a5aff6035
+  - enabled: 1
+    path: Assets/Scenes/StartUI.unity
+    guid: cf75182576187fa4bb79ae3ccd2599e8
   m_configObjects: {}

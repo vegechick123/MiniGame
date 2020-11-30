@@ -54,7 +54,6 @@ public class MusicTrigger : MonoBehaviour
             music.Play();
            
         }
-
         if (Input.GetKeyDown("v") && isCreate)
         {
             music.clip = createBridge;
