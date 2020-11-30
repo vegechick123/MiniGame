@@ -11,6 +11,7 @@ public class CreatePreFabTextContainer : MonoBehaviour
     public GameObject TextPreFabContainer;
     public Color color;
     public Font font;
+    public int fontSize=-1;
     void Awake()
     {
        
@@ -47,6 +48,8 @@ public class CreatePreFabTextContainer : MonoBehaviour
             text.text = arr[(int)i].ToString();
             if (font != null)
                 text.font = font;
+            if (fontSize >0)
+                text.fontSize = fontSize;
             text.color = color;
         }
     }

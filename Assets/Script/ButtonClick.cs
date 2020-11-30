@@ -10,7 +10,7 @@ public class ButtonClick : MonoBehaviour
     public void Click()
     {
         Debug.Log("enterGame");
-        SceneManager.LoadScene("Level0");
+        SceneManager.LoadScene(1);
         
     }
     public void Click2()
