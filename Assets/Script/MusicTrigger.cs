@@ -54,12 +54,7 @@ public class MusicTrigger : MonoBehaviour
             music.Play();
            
         }
-        if (Input.GetKeyDown("v") && isBroken)
-        {
-            music.clip = brokenDoors;
-            music.Play();
-            isCreate = false;
-        }
+
         if (Input.GetKeyDown("v") && isCreate)
         {
             music.clip = createBridge;

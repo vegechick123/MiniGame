@@ -79,6 +79,7 @@ MonoBehaviour:
   player: {fileID: 0}
   breakParticle: {fileID: 1343747262343465956, guid: c2eab56920077b24a9201b54a00b102c,
     type: 3}
+  sound: {fileID: 8300000, guid: 4327976fbadad304b8640299dc1bdb08, type: 3}
 --- !u!61 &5467116046290414544
 BoxCollider2D:
   m_ObjectHideFlags: 0
