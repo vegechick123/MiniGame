@@ -973,7 +973,7 @@ PrefabInstance:
         type: 3}
       propertyPath: run
       value: 
-      objectReference: {fileID: 8300000, guid: 3cc70b60b8a0c5c40a9c839978465a21, type: 3}
+      objectReference: {fileID: 8300000, guid: 6c34c17a8736a1641886613b5679b6a5, type: 3}
     - target: {fileID: 3072812850399329873, guid: a8d324c19c976b141965ee817aec640f,
         type: 3}
       propertyPath: jump
@@ -1793,7 +1793,7 @@ PrefabInstance:
         type: 3}
       propertyPath: run
       value: 
-      objectReference: {fileID: 8300000, guid: 3cc70b60b8a0c5c40a9c839978465a21, type: 3}
+      objectReference: {fileID: 8300000, guid: 6c34c17a8736a1641886613b5679b6a5, type: 3}
     - target: {fileID: 3072812850399329873, guid: a8d324c19c976b141965ee817aec640f,
         type: 3}
       propertyPath: jump
