@@ -13,6 +13,11 @@ public class ButtonClick : MonoBehaviour
         SceneManager.LoadScene("Level0");
         
     }
+    public void Click2()
+    {
+        Application.Quit();
+    }
+
         
   }
     
