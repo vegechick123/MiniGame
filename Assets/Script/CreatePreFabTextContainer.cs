@@ -10,6 +10,7 @@ public class CreatePreFabTextContainer : MonoBehaviour
     public GameObject textContainer;
     public GameObject TextPreFabContainer;
     public Color color;
+    public Font font;
     void Awake()
     {
        
@@ -44,6 +45,8 @@ public class CreatePreFabTextContainer : MonoBehaviour
             ContainTxt.transform.SetParent(TextPreFabContainer.transform);
             Text text = ContainTxt.GetComponentInChildren<Text>();
             text.text = arr[(int)i].ToString();
+            if (font != null)
+                text.font = font;
             text.color = color;
         }
     }
