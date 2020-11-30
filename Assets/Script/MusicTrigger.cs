@@ -58,7 +58,7 @@ public class MusicTrigger : MonoBehaviour
         {
             music.clip = brokenDoors;
             music.Play();
-            isCreate = false;
+            isBroken = false;
         }
         if (Input.GetKeyDown("v") && isCreate)
         {
